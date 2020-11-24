@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: userdb-installer
+  labels:
+    app: python
+spec:
+  containers:
+  - name: setup-db
+    image: lynggaard/usersql:latest
+    imagePullPolicy: Always
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do sleep 99999;done"]
+  restartPolicy: Never
+  terminationGracePeriodSeconds: 0

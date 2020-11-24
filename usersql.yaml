@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pythonapp
+  labels:
+    name: pythonapp
+spec:
+  containers:
+  - name: dbinstaller
+    image: lynggaard/usersql:latest
+    imagePullPolicy: Always
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do sleep 99999;done"]
+  restartPolicy: Never
+    # ports:
+    #   - containerPort: 26257
+    #     protocol: TCP
