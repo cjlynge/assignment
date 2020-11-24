@@ -42,7 +42,7 @@ $ SELECT * FROM humans.users
 ```
 The database should show none.
 
-###Thoughts and improvements:
+### Thoughts and improvements:
 - Bulk operations (insert, delete)
 - Better Optimized Select query.
 - Use hashing for integrity integrity check.
