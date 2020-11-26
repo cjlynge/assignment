@@ -8,10 +8,17 @@
 
 ### Guide
 
-First install Helm 3.
+First install Helm 3
 https://helm.sh/docs/intro/install/
 
-Then proceed with this guide in order to install Minikube and also make sure to pick the INSECURE version of CockroachDB. Please use helm to do so.
+Second install Docker
+https://docs.docker.com/get-docker/
+
+Third install Minikube along with a hypervisor
+https://minikube.sigs.k8s.io/docs/start/
+https://minikube.sigs.k8s.io/docs/drivers/hyperkit/
+
+Forth proceed with this guide in order to install CockroachDB on Minikube, remember to select the INSECURE version of the guide and use Helm to do so.
 https://www.cockroachlabs.com/docs/v20.2/orchestrate-a-local-cluster-with-kubernetes-insecure
 
 When CockroachDB is up and running (takes ~2 minutes) you can now spin up the Pythonapp pod in Minikube.
