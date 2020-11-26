@@ -18,6 +18,9 @@ Third install Minikube along with a hypervisor
 https://minikube.sigs.k8s.io/docs/start/
 https://minikube.sigs.k8s.io/docs/drivers/hyperkit/
 
+Starting Minikube
+![](minikube.gif)
+
 Forth proceed with this guide in order to install CockroachDB on Minikube, remember to select the INSECURE version of the guide and use Helm to do so.
 https://www.cockroachlabs.com/docs/v20.2/orchestrate-a-local-cluster-with-kubernetes-insecure
 
