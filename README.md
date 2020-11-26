@@ -47,11 +47,10 @@ Fire it up and try to select users from the humans.users table (below expects yo
 ```
 $ SELECT * FROM humans.users
 ```
-The database should show none.
+The database should show be empty.
 
 ### Thoughts and improvements:
-- Bulk operations (insert, delete)
+- Bulk operations: SQL: insert, delete.
 - Better Optimized Select query.
-- Use hashing for integrity integrity check.
 - Setup CockroachDB with SSL and create a user with least priviledged access.
 - In general better code structure.
