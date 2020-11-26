@@ -21,7 +21,7 @@ https://minikube.sigs.k8s.io/docs/drivers/hyperkit/
 Starting Minikube
 
 <p align="center">
-  <img src="minikube.gif" alt="animated" />
+  <img src="minikube-crop.gif" alt="animated" />
 </p>
 
 
