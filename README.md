@@ -57,7 +57,7 @@ $ SELECT * FROM humans.users
 The database should show be empty.
 
 ### Thoughts and improvements:
-- Bulk operations: SQL: insert, delete.
+- Bulk operations: SQL: insert, delete. File: Bulk insert.
 - Better Optimized Select query.
 - Setup CockroachDB with SSL and create a user with least priviledged access.
 - In general better code structure.
