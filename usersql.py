@@ -1,4 +1,5 @@
 import psycopg2
+import hashlib
 
 #Establish SQL connection string
 conn = psycopg2.connect(
@@ -8,6 +9,8 @@ conn = psycopg2.connect(
     port=26257,
     host='cockroachdb-public.default'
 )
+
+txtfile = str("userfile.txt")
 
 #Create environment for task (users)
 def create_db_with_tables(conn):
@@ -35,7 +38,9 @@ def options(val):
         create_users(conn)
     elif val == 2:
         write_out_users(conn)
-    #   elif val == 3:
+    elif val == 3:
+        print("breaking script")
+        exit()
 
 def write_out_users(conn):
 
@@ -46,33 +51,60 @@ def write_out_users(conn):
     cur.execute(
         "SELECT * FROM humans.users;"
     )
-
+    
     rows = cur.fetchall()
     print('writing users to userfile.txt')
     #create file which will be populated with users
-    f = open("userfile.txt", "w")
+    f = open(txtfile, "w+")
+
     for row in rows:
+        
+        #let's begin checking the integrity of the collected row
+        h.update(str((row) + "\n").encode('utf8'))
+
         #write each line as f.write wants a single string, not a list
         f.write(str(row) + "\n")
 
-        #delete each row written
-        row_to_delete = row[0]
-        cur.execute(
-            "DELETE FROM humans.users WHERE id = " + "\'"+row_to_delete+"\'"
-        )
-        #missing integrity check
+        #integrity check of write
+
+    h2.update(f.read().encode('utf8'))
+
     f.close()
 
-    print("done")
+    print(h.hexdigest())
+    print(h2.hexdigest())
+
+    #truncate table if hashes match
+    if h.hexdigest() == h2.hexdigest():
+
+        cur.execute(
+            "TRUNCATE humans.users;"
+        )
+
+        print("Data written succesfully, humans.users table has been truncated")
+    
+    else:
+        print("Data written to" + txtfile + "is in consistent!")
 
     #Close SQL Connections
     cur.close()
-    conn.close()
+    conn.close()  
+
+    print("done")
 
 #Using try catch for error handling
 try:
+    h = hashlib.sha256()
+    h2 = hashlib.sha256()
 
-    val = int(input("(1) to create Database and Users \n(2) to write out users "))
+    while True:
+        try:
+            val = int(input("(1) to create Database and Users \n(2) to write out users \n(3) to break the script\nPlease select: "))
+        except ValueError:
+            continue
+        else:
+            break
+
     options(val)
     
 except Exception as ex:
