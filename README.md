@@ -15,7 +15,7 @@ Second install Docker
 https://docs.docker.com/get-docker/
 
 Third install Minikube along with a hypervisor
-https://minikube.sigs.k8s.io/docs/start/
+https://minikube.sigs.k8s.io/docs/start/ 
 https://minikube.sigs.k8s.io/docs/drivers/hyperkit/
 
 Starting Minikube
