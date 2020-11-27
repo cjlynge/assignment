@@ -54,7 +54,7 @@ Fire it up and try to select users from the humans.users table (below expects yo
 ```
 $ SELECT * FROM humans.users
 ```
-The database should show be empty.
+The database should now be empty.
 
 ### Thoughts of improvements:
 - Bulk operations: SQL: insert, delete. File: Bulk insert.
