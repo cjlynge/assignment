@@ -25,7 +25,7 @@ Starting Minikube
 </p>
 
 
-Forth proceed with this guide in order to install CockroachDB on Minikube, remember to select the INSECURE version of the guide and use Helm to do so. <br/>
+Forth proceed with this guide in order to install CockroachDB on Minikube, select the INSECURE version of the guide and find the Helm approach to do so. <br/>
 https://www.cockroachlabs.com/docs/v20.2/orchestrate-a-local-cluster-with-kubernetes-insecure
 
 When CockroachDB is up and running (takes ~2 minutes) you can now spin up the Pythonapp pod in Minikube.
