@@ -52,7 +52,7 @@ $ kubectl run -it --rm cockroach-client \
 ```
 Fire it up and try to select users from the humans.users table (below expects you to be inside the CockroachDB Client container
 ```
-$ SELECT * FROM humans.users
+$ SELECT * FROM humans.users;
 ```
 The database should now be empty.
 
