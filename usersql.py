@@ -57,22 +57,54 @@ def write_out_users(conn):
     #create file which will be populated with users
     f = open(txtfile, "w+")
 
+    ## TEST ZONE ##
+    #myvar = ""
+    ## TEST ZONE DONE ##
+
     for row in rows:
         
         #let's begin checking the integrity of the collected row
-        h.update(str((row) + "\n").encode('utf8'))
+        h.update((str(row) + str("\n")).encode('utf8'))
 
         #write each line as f.write wants a single string, not a list
-        f.write(str(row) + "\n")
+        f.write(str(row) + str("\n"))
 
-        #integrity check of write
-
-    h2.update(f.read().encode('utf8'))
+        ## TEST ZONE ##
+        #myvar+=(str(row) + str("\n"))
+        ## TEST ZONE DONE ##
 
     f.close()
 
+    ##integrity check of write
+    #read file
+    userfile = open('userfile.txt',mode='r')
+    all_of_it = userfile.read()
+    # close the file
+    userfile.close()
+
+    h2.update(str(all_of_it).encode('utf8'))
+
     print(h.hexdigest())
     print(h2.hexdigest())
+    
+    ## TEST ZONE ##
+    ##read file
+    #userfile = open('userfile.txt',mode='r')
+    #all_of_it = userfile.read()
+    ## close the file
+    #userfile.close()
+
+    #print("first")
+    #all_of_it = all_of_it.encode('utf8')
+    #print(all_of_it)
+
+    #read var as utf8
+    #print("second")
+    #myvar = myvar.encode('utf8')
+    #print(myvar)
+
+    ## TEST ZONE DONE ##
+
 
     #truncate table if hashes match
     if h.hexdigest() == h2.hexdigest():
@@ -84,7 +116,7 @@ def write_out_users(conn):
         print("Data written succesfully, humans.users table has been truncated")
     
     else:
-        print("Data written to" + txtfile + "is in consistent!")
+        print("Data written to" + txtfile + " is inconsistent!")
 
     #Close SQL Connections
     cur.close()
